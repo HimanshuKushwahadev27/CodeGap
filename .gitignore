@@ -4,6 +4,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+CodeGap_Blueprint.pdf
 ### STS ###
 .apt_generated
 .classpath
