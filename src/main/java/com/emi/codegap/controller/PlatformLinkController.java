@@ -46,6 +46,12 @@ public class PlatformLinkController {
         return ResponseEntity.noContent().build();
     }
 
+    @PostMapping("/{id}/sync")
+    public ResponseEntity<Void> syncPlatform(@PathVariable UUID id) {
+        platformLinkService.requestSync(id);
+        return ResponseEntity.accepted().build();
+    }
+
     public record LinkPlatformRequest(
         @NotNull UUID userId,
         @NotNull PlatformType platform,
