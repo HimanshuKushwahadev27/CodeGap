@@ -31,6 +31,8 @@
               }
             ],
             "styles": [
+              "src/assets/tailwind.css",
+              "src/assets/styles.scss",
               "src/styles.scss"
             ]
           },

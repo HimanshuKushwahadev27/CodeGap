@@ -1,1 +1,63 @@
-<p>header works!</p>
+<header class="layout-topbar">
+  <div class="layout-topbar-logo-container">
+    <button
+      class="layout-menu-button layout-topbar-action"
+      type="button"
+      aria-label="Toggle navigation"
+      (click)="toggleMenu()"
+    >
+      <i class="pi pi-bars"></i>
+    </button>
+
+    <a class="layout-topbar-logo" href="/" aria-label="CodeGap home" (click)="closeMenu()">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" role="img">
+          <path d="M17.9 3.5 7.3 17.1h7.4l-.6 11.4 10.6-14.2h-7.3l.5-10.8Z"></path>
+        </svg>
+      </span>
+      <span>Code<span class="brand-accent">Gap</span></span>
+    </a>
+  </div>
+
+  <nav class="layout-topbar-menu" [class.layout-topbar-menu-open]="isMenuOpen()" aria-label="Primary navigation">
+    <div class="layout-topbar-menu-content">
+      <a class="layout-topbar-action" href="#features" (click)="closeMenu()">
+        <i class="pi pi-sparkles"></i>
+        <span>Features</span>
+      </a>
+      <a class="layout-topbar-action" href="#how-it-works" (click)="closeMenu()">
+        <i class="pi pi-directions"></i>
+        <span>How it works</span>
+      </a>
+      <a class="layout-topbar-action" href="#about" (click)="closeMenu()">
+        <i class="pi pi-info-circle"></i>
+        <span>About</span>
+      </a>
+    </div>
+  </nav>
+
+  <div class="layout-topbar-actions">
+    <div class="layout-config-menu">
+      @if (authService.isAuthenticated()) {
+        <a class="layout-topbar-action" href="#dashboard" (click)="closeMenu()">
+          <i class="pi pi-home"></i>
+          <span>Dashboard</span>
+        </a>
+        <button class="layout-topbar-action auth-action" type="button" (click)="logout()">
+          <i class="pi pi-sign-out"></i>
+          <span>Sign out</span>
+        </button>
+      } @else {
+        <button class="layout-topbar-action auth-action" type="button" (click)="login()">
+          <i class="pi pi-sign-in"></i>
+          <span>Sign in</span>
+        </button>
+        <button class="layout-topbar-action layout-topbar-action-highlight auth-action" type="button" (click)="login()">
+          <i class="pi pi-arrow-right"></i>
+          <span>Get started</span>
+        </button>
+      }
+    </div>
+
+  </div>
+</header>

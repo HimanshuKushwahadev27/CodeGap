@@ -1,11 +1,24 @@
+### Maven / Spring ###
 HELP.md
 target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### Gradle / build output ###
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### Project-specific ###
 CodeGap_Blueprint.pdf
-### STS ###
+sakai-ng/
+
+### IDEs and editors ###
+.idea
+*.iws
+*.iml
+*.ipr
 .apt_generated
 .classpath
 .factorypath
@@ -13,22 +26,36 @@ CodeGap_Blueprint.pdf
 .settings
 .springBeans
 .sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
+.c9/
+*.launch
+*.sublime-workspace
+.vscode/
+.history/
 /nbproject/private/
 /nbbuild/
-/dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
-.vscode/
+### Angular / Node ###
+/dist
+/tmp
+/out-tsc
+/bazel-out
+node_modules/
+npm-debug.log
+yarn-error.log
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+### System files ###
+.DS_Store
+Thumbs.db
+
+### Environment secrets ###
+.env
+.env.local
