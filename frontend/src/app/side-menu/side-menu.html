@@ -12,59 +12,17 @@
       <span>Dashboard</span>
     </a>
 
-    <span class="side-menu-section">UI Components</span>
-    <a href="#features" (click)="closeMenu()">
-      <i class="pi pi-id-card"></i>
-      <span>Form Layout</span>
-    </a>
-    <a href="#how-it-works" (click)="closeMenu()">
-      <i class="pi pi-check-square"></i>
-      <span>Input</span>
-    </a>
-    <a href="#about" (click)="closeMenu()">
-      <i class="pi pi-mobile"></i>
-      <span>Button</span>
-    </a>
-    <a href="#about" (click)="closeMenu()">
-      <i class="pi pi-table"></i>
-      <span>Table</span>
-    </a>
-    <a href="#about" (click)="closeMenu()">
-      <i class="pi pi-list"></i>
-      <span>List</span>
-    </a>
-    <a href="#about" (click)="closeMenu()">
-      <i class="pi pi-share-alt"></i>
-      <span>Tree</span>
-    </a>
-    <a href="#about" (click)="closeMenu()">
-      <i class="pi pi-tablet"></i>
-      <span>Panel</span>
-    </a>
-    <a href="#about" (click)="closeMenu()">
-      <i class="pi pi-clone"></i>
-      <span>Overlay</span>
-    </a>
-    <a href="#about" (click)="closeMenu()">
-      <i class="pi pi-image"></i>
-      <span>Media</span>
-    </a>
-    <a href="#about" (click)="closeMenu()">
-      <i class="pi pi-bars"></i>
-      <span>Menu</span>
-    </a>
-    <a href="#about" (click)="closeMenu()">
-      <i class="pi pi-comment"></i>
-      <span>Message</span>
-    </a>
-    <a href="#about" (click)="closeMenu()">
-      <i class="pi pi-file"></i>
-      <span>File</span>
-    </a>
-    <a href="#about" (click)="closeMenu()">
-      <i class="pi pi-chart-bar"></i>
-      <span>Chart</span>
-    </a>
+    @if (isOpen) {
+      <span class="side-menu-section">Workspace</span>
+      <a href="#accounts" (click)="closeMenu()">
+        <i class="pi pi-users"></i>
+        <span>Connected accounts</span>
+      </a>
+      <a href="#insights" (click)="closeMenu()">
+        <i class="pi pi-chart-bar"></i>
+        <span>Insights</span>
+      </a>
+    }
   </nav>
 </aside>
 

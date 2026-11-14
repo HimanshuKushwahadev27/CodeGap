@@ -51,9 +51,7 @@ export class AuthService {
     return this.oauthService.hasValidAccessToken();
   }
 
-  getUser() {
-    const claims: any = this.oauthService.getIdentityClaims();
-    console.log(claims);
+  getIdentityClaims(): Record<string, string> | null {
+    return (this.oauthService.getIdentityClaims() as Record<string, string> | null) ?? null;
   }
-
 }

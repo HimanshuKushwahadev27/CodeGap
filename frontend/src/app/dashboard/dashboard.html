@@ -1,0 +1,76 @@
+@if (!authService.isAuthenticated()) {
+  <section class="welcome">
+    <div class="welcome-copy">
+      <span class="eyebrow">Your competitive programming cockpit</span>
+      <h1>Close the gap between practice and progress.</h1>
+      <p>Connect your coding profiles and get one clear view of your strengths, weak spots, and next best problems.</p>
+      <button class="primary-button" type="button" (click)="login()">
+        <i class="pi pi-arrow-right"></i>
+        Start building your profile
+      </button>
+    </div>
+    <div class="welcome-art" aria-hidden="true">
+      <div class="orb orb-one"></div>
+      <div class="orb orb-two"></div>
+      <div class="code-card"><span>const</span> progress = <b>consistent</b>;</div>
+    </div>
+  </section>
+} @else {
+  <div class="dashboard-page">
+    <header class="page-heading">
+      <div>
+        <span class="eyebrow">Your workspace</span>
+        <h1>Good to see you, {{ profile()?.displayName ?? 'developer' }}.</h1>
+        <p>Here is the latest picture of your problem-solving journey.</p>
+      </div>
+      <button class="secondary-button" type="button" (click)="loadDashboard()" [disabled]="loading()">
+        <i class="pi pi-refresh" [class.spin]="loading()"></i> Refresh
+      </button>
+    </header>
+
+    @if (error()) { <div class="error-banner"><i class="pi pi-exclamation-circle"></i>{{ error() }}</div> }
+    @if (loading()) {
+      <div class="loading-state"><i class="pi pi-spin pi-spinner"></i> Loading your workspace...</div>
+    } @else {
+      <section class="stat-grid">
+        <article class="stat-card"><span>Platforms linked</span><strong>{{ dashboard()?.overview?.totalPlatformsLinked ?? accounts().length }}</strong><i class="pi pi-link"></i></article>
+        <article class="stat-card"><span>Strength score</span><strong>{{ dashboard()?.overview?.strengthScore ?? 0 }}<small>/100</small></strong><i class="pi pi-chart-line"></i></article>
+        <article class="stat-card"><span>Focus next</span><strong class="stat-text">{{ dashboard()?.overview?.weakestTopic ?? 'No data yet' }}</strong><i class="pi pi-compass"></i></article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel accounts-panel">
+          <div class="panel-heading"><div><span class="eyebrow">Connected profiles</span><h2>Your coding accounts</h2></div><span class="count">{{ accounts().length }}/3</span></div>
+          @if (accounts().length) {
+            <div class="account-list">
+              @for (account of accounts(); track account.id) {
+                <div class="account-row">
+                  <span class="platform-icon"><i [class]="'pi ' + platformIcon(account.platform)"></i></span>
+                  <div class="account-details"><strong>{{ platformLabel(account.platform) }}</strong><span>@{{ account.handle }} · {{ formatDate(account.lastSyncedAt) }}</span></div>
+                  <span class="status" [class]="'status-' + account.syncStatus.toLowerCase()">{{ statusLabel(account.syncStatus) }}</span>
+                  <button class="icon-button" type="button" title="Sync account" (click)="syncAccount(account)"><i class="pi pi-refresh"></i></button>
+                  <button class="icon-button danger" type="button" title="Remove account" (click)="unlinkAccount(account)"><i class="pi pi-trash"></i></button>
+                </div>
+              }
+            </div>
+          } @else {
+            <div class="empty-state"><i class="pi pi-users"></i><strong>Connect your first profile</strong><span>Link an account to start seeing your coding signal.</span></div>
+          }
+        </article>
+
+        <article class="panel link-panel">
+          <div class="panel-heading"><div><span class="eyebrow">Add a profile</span><h2>Link account</h2></div></div>
+          <label for="platform">Platform</label>
+          <select id="platform" [ngModel]="platform()" (ngModelChange)="platform.set($event)">
+            @for (item of platforms; track item.value) { <option [value]="item.value">{{ item.label }}</option> }
+          </select>
+          <label for="handle">Username or handle</label>
+          <input id="handle" type="text" [(ngModel)]="handle" placeholder="e.g. tourve" (keyup.enter)="linkAccount()" />
+          <button class="primary-button full-width" type="button" (click)="linkAccount()" [disabled]="saving() || !handle.trim()">
+            @if (saving()) { <i class="pi pi-spin pi-spinner"></i> Linking... } @else { <i class="pi pi-plus"></i> Link profile }
+          </button>
+        </article>
+      </section>
+    }
+  </div>
+}
