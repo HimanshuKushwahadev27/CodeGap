@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { AuthService } from '../auth/service/auth.service';
 
 @Component({
@@ -8,15 +8,16 @@ import { AuthService } from '../auth/service/auth.service';
   styleUrl: './header.scss',
 })
 export class Header {
-  protected readonly authService = inject(AuthService);
-  protected readonly isMenuOpen = signal(false);
+  @Output() readonly menuToggled = new EventEmitter<void>();
+  @Output() readonly menuClosed = new EventEmitter<void>();
 
+  protected readonly authService = inject(AuthService);
   protected toggleMenu(): void {
-    this.isMenuOpen.update((isOpen) => !isOpen);
+    this.menuToggled.emit();
   }
 
   protected closeMenu(): void {
-    this.isMenuOpen.set(false);
+    this.menuClosed.emit();
   }
 
   protected login(): void {

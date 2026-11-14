@@ -19,23 +19,6 @@
     </a>
   </div>
 
-  <nav class="layout-topbar-menu" [class.layout-topbar-menu-open]="isMenuOpen()" aria-label="Primary navigation">
-    <div class="layout-topbar-menu-content">
-      <a class="layout-topbar-action" href="#features" (click)="closeMenu()">
-        <i class="pi pi-sparkles"></i>
-        <span>Features</span>
-      </a>
-      <a class="layout-topbar-action" href="#how-it-works" (click)="closeMenu()">
-        <i class="pi pi-directions"></i>
-        <span>How it works</span>
-      </a>
-      <a class="layout-topbar-action" href="#about" (click)="closeMenu()">
-        <i class="pi pi-info-circle"></i>
-        <span>About</span>
-      </a>
-    </div>
-  </nav>
-
   <div class="layout-topbar-actions">
     <div class="layout-config-menu">
       @if (authService.isAuthenticated()) {

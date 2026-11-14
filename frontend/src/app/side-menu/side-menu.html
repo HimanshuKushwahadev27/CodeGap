@@ -1,0 +1,73 @@
+<aside class="side-menu" [class.side-menu-open]="isOpen" aria-label="Side navigation">
+  <div class="side-menu-header">
+    <span class="side-menu-title">Home</span>
+    <button class="side-menu-close" type="button" aria-label="Close navigation" (click)="closeMenu()">
+      <i class="pi pi-times"></i>
+    </button>
+  </div>
+
+  <nav class="side-menu-links">
+    <a class="side-menu-link-active" href="#dashboard" (click)="closeMenu()">
+      <i class="pi pi-home"></i>
+      <span>Dashboard</span>
+    </a>
+
+    <span class="side-menu-section">UI Components</span>
+    <a href="#features" (click)="closeMenu()">
+      <i class="pi pi-id-card"></i>
+      <span>Form Layout</span>
+    </a>
+    <a href="#how-it-works" (click)="closeMenu()">
+      <i class="pi pi-check-square"></i>
+      <span>Input</span>
+    </a>
+    <a href="#about" (click)="closeMenu()">
+      <i class="pi pi-mobile"></i>
+      <span>Button</span>
+    </a>
+    <a href="#about" (click)="closeMenu()">
+      <i class="pi pi-table"></i>
+      <span>Table</span>
+    </a>
+    <a href="#about" (click)="closeMenu()">
+      <i class="pi pi-list"></i>
+      <span>List</span>
+    </a>
+    <a href="#about" (click)="closeMenu()">
+      <i class="pi pi-share-alt"></i>
+      <span>Tree</span>
+    </a>
+    <a href="#about" (click)="closeMenu()">
+      <i class="pi pi-tablet"></i>
+      <span>Panel</span>
+    </a>
+    <a href="#about" (click)="closeMenu()">
+      <i class="pi pi-clone"></i>
+      <span>Overlay</span>
+    </a>
+    <a href="#about" (click)="closeMenu()">
+      <i class="pi pi-image"></i>
+      <span>Media</span>
+    </a>
+    <a href="#about" (click)="closeMenu()">
+      <i class="pi pi-bars"></i>
+      <span>Menu</span>
+    </a>
+    <a href="#about" (click)="closeMenu()">
+      <i class="pi pi-comment"></i>
+      <span>Message</span>
+    </a>
+    <a href="#about" (click)="closeMenu()">
+      <i class="pi pi-file"></i>
+      <span>File</span>
+    </a>
+    <a href="#about" (click)="closeMenu()">
+      <i class="pi pi-chart-bar"></i>
+      <span>Chart</span>
+    </a>
+  </nav>
+</aside>
+
+@if (isOpen) {
+  <button class="side-menu-backdrop" type="button" aria-label="Close navigation" (click)="closeMenu()"></button>
+}

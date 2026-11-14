@@ -1,1 +1,5 @@
-<app-header></app-header>
+<app-header (menuToggled)="toggleSideMenu()" (menuClosed)="closeSideMenu()"></app-header>
+<app-side-menu [isOpen]="isSideMenuOpen()" (menuClosed)="closeSideMenu()"></app-side-menu>
+<main class="app-main" [class.app-main-menu-hidden]="!isSideMenuOpen()">
+  <router-outlet></router-outlet>
+</main>

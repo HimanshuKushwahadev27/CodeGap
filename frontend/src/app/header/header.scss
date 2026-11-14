@@ -5,11 +5,13 @@
 .layout-topbar {
   box-sizing: border-box;
   position: sticky;
-  height: 4.5rem;
-  padding: 0 2rem;
-  gap: 2rem;
+  z-index: 1001;
+  height: 4rem;
+  padding: 0 1.5rem;
+  gap: 1rem;
   background: var(--surface-card);
-  border-bottom: 1px solid var(--surface-border);
+  border-bottom: 0;
+  box-shadow: 0 1px 5px rgb(0 0 0 / 6%);
 }
 
 .layout-topbar .layout-topbar-logo-container {
@@ -18,7 +20,12 @@
 }
 
 .layout-topbar .layout-menu-button {
-  display: none;
+  display: inline-flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
 }
 
 .layout-topbar .layout-topbar-logo {
@@ -119,10 +126,6 @@
     height: 4rem;
     padding: 0 1rem;
     gap: 0.5rem;
-  }
-
-  .layout-topbar .layout-menu-button {
-    display: inline-flex;
   }
 
   .layout-topbar .layout-topbar-menu {

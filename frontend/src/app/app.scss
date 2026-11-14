@@ -1,0 +1,17 @@
+.app-main {
+  min-height: calc(100vh - 4rem);
+  margin-left: 18rem;
+  padding: 2rem;
+  background: var(--surface-ground);
+}
+
+.app-main.app-main-menu-hidden {
+  margin-left: 0;
+}
+
+@media (max-width: 991px) {
+  .app-main {
+    margin-left: 0;
+    padding: 1rem;
+  }
+}

@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: #34d399;
+  --primary-contrast-color: #06281c;
+  --text-color: #e5e7eb;
+  --text-color-secondary: #9ca3af;
+  --surface-ground: #111827;
+  --surface-card: #1f2937;
+  --surface-overlay: #263244;
+  --surface-hover: #2d3a4d;
+  --surface-border: #374151;
+  --content-border-radius: 0.5rem;
+  --maskbg: rgb(0 0 0 / 55%);
+
+  --p-primary-color: var(--primary-color);
+  --p-primary-contrast-color: var(--primary-contrast-color);
+  --p-text-color: var(--text-color);
+  --p-text-muted-color: var(--text-color-secondary);
+  --p-content-background: var(--surface-card);
+  --p-content-hover-background: var(--surface-hover);
+  --p-overlay-popover-background: var(--surface-overlay);
+  --p-content-border-color: var(--surface-border);
+  --p-surface-100: var(--surface-card);
+  --p-surface-900: #f3f4f6;
+  --p-surface-950: var(--surface-ground);
+  --p-transition-duration: 0.2s;
+}
+
+html,
+body {
+  background: var(--surface-ground);
+  color: var(--text-color);
+}
