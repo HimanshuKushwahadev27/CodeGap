@@ -1,0 +1,700 @@
+:root {
+  --codegap-ground: #0f172a;
+  --codegap-ground-deep: #0b1120;
+  --codegap-card: #1e293b;
+  --codegap-card-glass: rgb(30 41 59 / 86%);
+  --codegap-overlay: #263449;
+  --codegap-hover: #334155;
+  --codegap-border: rgb(148 163 184 / 20%);
+  --codegap-primary: #34d399;
+  --codegap-primary-dark: #10b981;
+  --codegap-primary-contrast: #06281c;
+  --codegap-indigo: #4f46e5;
+  --codegap-text: #f1f5f9;
+  --codegap-muted: #94a3b8;
+  --codegap-danger: #fca5a5;
+  --codegap-warning: #fcd34d;
+  --codegap-radius: 0.875rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+body.login-pf,
+.login-pf-page {
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+  background-color: var(--codegap-ground) !important;
+  background-image: none !important;
+}
+
+body {
+  color: var(--codegap-text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.login-pf {
+  background:
+    radial-gradient(circle at 88% 8%, rgb(52 211 153 / 12%), transparent 28rem),
+    radial-gradient(circle at 8% 92%, rgb(79 70 229 / 10%), transparent 30rem),
+    var(--codegap-ground) !important;
+}
+
+body.login-pf::before {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.17;
+  background-image:
+    linear-gradient(rgb(148 163 184 / 7%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(148 163 184 / 7%) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  content: "";
+  mask-image: linear-gradient(to bottom, black, transparent 75%);
+}
+
+#kc-header,
+#kc-header-wrapper {
+  display: none;
+}
+
+.login-pf-page {
+  position: relative;
+  z-index: 1;
+  display: block;
+  padding: 0 !important;
+}
+
+.card-pf {
+  width: 100%;
+  max-width: none;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.codegap-auth-shell {
+  display: grid;
+  grid-template-columns: minmax(20rem, 0.9fr) minmax(32rem, 1.1fr);
+  min-height: 100vh;
+}
+
+.codegap-auth-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem clamp(1.25rem, 5vw, 6rem);
+}
+
+.codegap-login-card {
+  width: min(100%, 27rem);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border: 1px solid var(--codegap-border);
+  border-radius: var(--codegap-radius);
+  background: var(--codegap-card-glass);
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 25%);
+  backdrop-filter: blur(1.25rem);
+  animation: fade-up 0.55s ease both;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.codegap-login-card:focus-within {
+  border-color: rgb(52 211 153 / 42%);
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 25%), 0 0 2.5rem rgb(52 211 153 / 8%);
+}
+
+.login-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+  color: var(--codegap-text);
+  font-size: 1.35rem;
+  font-weight: 750;
+  letter-spacing: -0.045em;
+}
+
+.brand-mark {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 0.5rem;
+  color: var(--codegap-primary-contrast);
+  background: var(--codegap-primary);
+}
+
+.brand-mark svg {
+  width: 1.15rem;
+  fill: currentColor;
+}
+
+.brand-accent {
+  color: var(--codegap-primary);
+}
+
+.eyebrow {
+  color: var(--codegap-primary);
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.login-heading h1 {
+  margin: 0.5rem 0 0.6rem;
+  color: var(--codegap-text);
+  font-size: clamp(1.65rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 1.08;
+}
+
+.login-heading p,
+.registration-prompt {
+  margin: 0;
+  color: var(--codegap-muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.login-heading {
+  margin-bottom: 1.75rem;
+}
+
+.login-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border: 1px solid;
+  border-radius: 0.55rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.login-alert-error {
+  border-color: rgb(248 113 113 / 30%);
+  color: var(--codegap-danger);
+  background: rgb(127 29 29 / 25%);
+}
+
+.login-alert-warning {
+  border-color: rgb(251 191 36 / 30%);
+  color: var(--codegap-warning);
+  background: rgb(120 53 15 / 25%);
+}
+
+.login-alert-success,
+.login-alert-info {
+  border-color: rgb(52 211 153 / 30%);
+  color: #a7f3d0;
+  background: rgb(6 95 70 / 25%);
+}
+
+.alert-icon {
+  display: grid;
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.login-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.form-field label,
+.field-label-row {
+  color: var(--codegap-muted);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.field-label-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 0.85rem;
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: var(--codegap-muted);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: stroke 0.2s;
+}
+
+.input-wrap:focus-within .input-icon {
+  stroke: var(--codegap-primary);
+}
+
+.form-field input {
+  width: 100%;
+  min-height: 2.8rem;
+  padding: 0.7rem 0.8rem 0.7rem 2.55rem;
+  border: 1px solid var(--codegap-border);
+  border-radius: 0.5rem;
+  color: var(--codegap-text);
+  background: rgb(15 23 42 / 72%);
+  font: inherit;
+  font-size: 0.84rem;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
+}
+
+.form-field input::placeholder {
+  color: #64748b;
+}
+
+.form-field input:focus {
+  border-color: var(--codegap-primary);
+  background: rgb(15 23 42 / 90%);
+  box-shadow: 0 0 0 3px rgb(52 211 153 / 13%), 0 0 1.25rem rgb(52 211 153 / 8%);
+}
+
+.password-field input {
+  padding-right: 2.8rem;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 0.7rem;
+  display: grid;
+  width: 1.65rem;
+  height: 1.65rem;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 0.35rem;
+  color: var(--codegap-muted);
+  background: transparent;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.toggle-password:hover,
+.toggle-password:focus-visible {
+  color: var(--codegap-primary);
+  background: rgb(52 211 153 / 10%);
+}
+
+.toggle-password svg {
+  width: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.login-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 2.8rem;
+  margin-top: 0.25rem;
+  padding: 0 1rem;
+  border: 0;
+  border-radius: 0.5rem;
+  color: var(--codegap-primary-contrast);
+  background: linear-gradient(135deg, var(--codegap-primary), var(--codegap-primary-dark));
+  box-shadow: 0 0.4rem 1rem rgb(16 185 129 / 15%);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition: filter 0.18s, box-shadow 0.18s, transform 0.18s;
+}
+
+.login-btn:hover:not(:disabled) {
+  box-shadow: 0 0.65rem 1.4rem rgb(16 185 129 / 25%);
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.login-btn:active:not(:disabled) {
+  box-shadow: 0 0.2rem 0.5rem rgb(16 185 129 / 15%);
+  transform: translateY(1px);
+}
+
+.login-btn:focus-visible,
+.social-btn:focus-visible,
+.quiet-link:focus-visible {
+  outline: 2px solid var(--codegap-primary);
+  outline-offset: 3px;
+}
+
+.login-btn:disabled {
+  cursor: wait;
+  opacity: 0.8;
+}
+
+.login-btn.is-loading .login-btn-label {
+  opacity: 0;
+}
+
+.login-spinner {
+  position: absolute;
+  display: none;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgb(6 40 28 / 30%);
+  border-top-color: var(--codegap-primary-contrast);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.login-btn.is-loading .login-spinner {
+  display: block;
+}
+
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 1.35rem 0 0.85rem;
+  color: #64748b;
+  font-size: 0.68rem;
+  white-space: nowrap;
+}
+
+.login-divider::before,
+.login-divider::after {
+  height: 1px;
+  flex: 1;
+  background: var(--codegap-border);
+  content: "";
+}
+
+.social-login {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 2.7rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--codegap-border);
+  border-radius: 0.5rem;
+  color: var(--codegap-text);
+  background: transparent;
+  font-size: 0.82rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition: background 0.18s, border-color 0.18s;
+}
+
+.social-btn:hover {
+  border-color: rgb(148 163 184 / 35%);
+  background: var(--codegap-overlay);
+}
+
+.google-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.social-provider-mark {
+  display: grid;
+  width: 1.1rem;
+  height: 1.1rem;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--codegap-primary-contrast);
+  background: var(--codegap-primary);
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.registration-prompt {
+  margin-top: 1.4rem;
+  text-align: center;
+}
+
+.verify-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+.verify-card {
+  width: min(100%, 28rem);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border: 1px solid var(--codegap-border);
+  border-radius: var(--codegap-radius);
+  background: var(--codegap-card-glass);
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 25%);
+  text-align: center;
+  backdrop-filter: blur(1.25rem);
+  animation: fade-up 0.55s ease both;
+}
+
+.verify-card .login-brand {
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.verify-card h2 {
+  margin: 0.55rem 0 0.75rem;
+  color: var(--codegap-text);
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+
+.verify-card p {
+  margin: 0.65rem 0;
+  color: var(--codegap-muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.verify-card strong {
+  color: var(--codegap-text);
+}
+
+.primary-btn {
+  min-height: 2.8rem;
+  margin-top: 1rem;
+  padding: 0 1.1rem;
+  border: 0;
+  border-radius: 0.5rem;
+  color: var(--codegap-primary-contrast);
+  background: linear-gradient(135deg, var(--codegap-primary), var(--codegap-primary-dark));
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition: filter 0.18s, transform 0.18s;
+}
+
+.primary-btn:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.quiet-link {
+  color: var(--codegap-primary);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.quiet-link:hover {
+  color: #6ee7b7;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.codegap-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 4rem clamp(2rem, 7vw, 8rem) 4rem clamp(2rem, 5vw, 5rem);
+  border-left: 1px solid rgb(148 163 184 / 10%);
+  background:
+    linear-gradient(145deg, rgb(23 59 50 / 72%), rgb(15 23 42 / 55%) 62%),
+    var(--codegap-ground-deep);
+}
+
+.codegap-hero::before {
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+  background-image:
+    linear-gradient(rgb(148 163 184 / 8%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(148 163 184 / 8%) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  content: "";
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 39rem;
+  animation: fade-up 0.65s 0.08s ease both;
+}
+
+.hero-content h2 {
+  max-width: 40rem;
+  margin: 0.8rem 0 1.35rem;
+  color: var(--codegap-text);
+  font-size: clamp(2.6rem, 5vw, 5rem);
+  font-weight: 850;
+  letter-spacing: -0.07em;
+  line-height: 0.98;
+}
+
+.hero-content p {
+  max-width: 32rem;
+  margin: 0;
+  color: var(--codegap-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(0.15rem);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.hero-orb-green {
+  top: -8rem;
+  right: 5%;
+  width: 22rem;
+  height: 22rem;
+  background: var(--codegap-primary);
+  box-shadow: 0 0 7rem var(--codegap-primary);
+}
+
+.hero-orb-indigo {
+  bottom: -7rem;
+  left: -4rem;
+  width: 17rem;
+  height: 17rem;
+  background: var(--codegap-indigo);
+  box-shadow: 0 0 6rem var(--codegap-indigo);
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 2rem;
+}
+
+.hero-stats span {
+  padding: 0.5rem 0.7rem;
+  border: 1px solid rgb(148 163 184 / 14%);
+  border-radius: 999px;
+  color: var(--codegap-muted);
+  background: rgb(15 23 42 / 32%);
+  font-size: 0.7rem;
+}
+
+.hero-stats strong {
+  color: var(--codegap-text);
+}
+
+.code-snippet {
+  position: absolute;
+  z-index: 1;
+  right: 10%;
+  bottom: 17%;
+  padding: 1.2rem 1.4rem;
+  border: 1px solid rgb(255 255 255 / 15%);
+  border-radius: 0.7rem;
+  color: #f1f5f9;
+  background: rgb(10 20 26 / 72%);
+  box-shadow: 0 1.25rem 3rem rgb(0 0 0 / 25%);
+  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.85rem;
+  transform: rotate(-4deg);
+  animation: float 5s ease-in-out infinite;
+}
+
+.code-keyword {
+  color: #a78bfa;
+}
+
+.code-value {
+  color: var(--codegap-primary);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    margin-bottom: 0;
+  }
+  50% {
+    margin-bottom: 0.65rem;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .codegap-auth-shell {
+    display: block;
+  }
+
+  .codegap-auth-panel {
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+
+  .codegap-hero {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
