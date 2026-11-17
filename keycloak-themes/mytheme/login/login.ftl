@@ -3,7 +3,7 @@
 <@layout.registrationLayout displayInfo=false; section>
 
 <#if section == "form">
-<main class="codegap-auth-shell">
+<main class="cg-login codegap-auth-shell">
     <section class="codegap-auth-panel">
         <div class="codegap-login-card">
             <div class="login-brand">

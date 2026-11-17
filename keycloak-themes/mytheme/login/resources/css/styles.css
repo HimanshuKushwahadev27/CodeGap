@@ -469,6 +469,206 @@ body.login-pf::before {
   animation: fade-up 0.55s ease both;
 }
 
+.codegap-info-shell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+.codegap-info-card {
+  width: min(100%, 30rem);
+  padding: 2.5rem;
+  border: 1px solid var(--codegap-border);
+  border-radius: 1rem;
+  background: var(--codegap-card-glass);
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 25%);
+  text-align: center;
+  backdrop-filter: blur(1.25rem);
+  animation: fade-up 0.55s ease both;
+}
+
+.codegap-info-card .login-brand {
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.info-icon {
+  display: grid;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0 auto 1.25rem;
+  place-items: center;
+  border: 1px solid rgb(52 211 153 / 28%);
+  border-radius: 50%;
+  color: var(--codegap-primary);
+  background: rgb(52 211 153 / 12%);
+}
+
+.info-icon svg {
+  width: 1.65rem;
+  height: 1.65rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.info-icon-error {
+  border-color: rgb(248 113 113 / 30%);
+  color: var(--codegap-danger);
+  background: rgb(127 29 29 / 25%);
+}
+
+.info-icon-warning {
+  border-color: rgb(251 191 36 / 30%);
+  color: var(--codegap-warning);
+  background: rgb(120 53 15 / 25%);
+}
+
+.info-icon-neutral {
+  border-color: rgb(129 140 248 / 30%);
+  color: #a5b4fc;
+  background: rgb(67 56 202 / 22%);
+}
+
+.codegap-info-card h1 {
+  margin: 0 0 0.75rem;
+  color: var(--codegap-text);
+  font-size: clamp(1.55rem, 4vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 1.1;
+}
+
+.info-copy {
+  max-width: 25rem;
+  margin: 0 auto;
+  color: var(--codegap-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.info-copy strong {
+  color: var(--codegap-text);
+}
+
+.info-actions {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1.75rem;
+}
+
+.codegap-form-card {
+  text-align: left;
+}
+
+.codegap-form-card .login-brand,
+.codegap-form-card .info-icon,
+.codegap-form-card h1,
+.codegap-form-card > .info-copy {
+  text-align: center;
+}
+
+.info-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.info-form .info-primary-btn {
+  width: 100%;
+}
+
+.codegap-form-card > .info-secondary {
+  margin-top: 1.25rem;
+  text-align: center;
+}
+
+.info-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.9rem;
+  padding: 0.7rem 1.2rem;
+  border: 0;
+  border-radius: 0.75rem;
+  color: var(--codegap-primary-contrast);
+  background: linear-gradient(135deg, var(--codegap-primary), var(--codegap-primary-dark));
+  box-shadow: 0 0.4rem 1rem rgb(16 185 129 / 15%);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 750;
+  text-decoration: none;
+  cursor: pointer;
+  transition: filter 0.18s, box-shadow 0.18s, transform 0.18s;
+}
+
+.info-secondary-btn {
+  min-height: 2.9rem;
+  padding: 0.7rem 1.2rem;
+  border: 1px solid var(--codegap-border);
+  border-radius: 0.75rem;
+  color: var(--codegap-muted);
+  background: transparent;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.info-secondary-btn:hover {
+  color: var(--codegap-text);
+  background: var(--codegap-overlay);
+}
+
+.info-secondary-btn:focus-visible {
+  outline: 2px solid var(--codegap-primary);
+  outline-offset: 3px;
+}
+
+.info-primary-btn:hover {
+  box-shadow: 0 0.65rem 1.4rem rgb(16 185 129 / 25%);
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.info-primary-btn:focus-visible {
+  outline: 2px solid var(--codegap-primary);
+  outline-offset: 3px;
+}
+
+.info-secondary {
+  color: var(--codegap-muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.info-secondary a {
+  color: var(--codegap-primary);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.info-secondary a:hover {
+  color: #6ee7b7;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.info-skip {
+  margin-top: 1rem;
+  color: var(--codegap-muted);
+  font-size: 0.78rem;
+}
+
+.info-skip a {
+  color: var(--codegap-primary);
+}
+
 .verify-card .login-brand {
   justify-content: center;
   margin-bottom: 1.5rem;
@@ -688,6 +888,12 @@ body.login-pf::before {
   }
 }
 
+@media (max-width: 480px) {
+  .codegap-info-card {
+    padding: 2rem 1.25rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -696,5 +902,537 @@ body.login-pf::before {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/*
+ * Keycloak 26.x parent-theme reset and layout overrides.
+ * The parent wraps this page in several PatternFly containers that otherwise
+ * constrain the grid and paint the default white login surface.
+ */
+html,
+body,
+body.login-pf,
+body.login-pf .login-pf-page,
+body.login-pf .login-pf-page .card-pf,
+body.login-pf #kc-container,
+body.login-pf #kc-container-wrapper,
+body.login-pf #kc-content,
+body.login-pf #kc-content-wrapper,
+body.login-pf .pf-v5-c-login,
+body.login-pf .pf-v5-c-login__container,
+body.login-pf .pf-v5-c-login__main,
+body.login-pf .pf-v5-c-login__main-header,
+body.login-pf .pf-v5-c-login__main-body {
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  float: none;
+  border: 0;
+  background-color: transparent !important;
+  box-shadow: none;
+}
+
+body.login-pf,
+body.login-pf .login-pf-page {
+  overflow-x: hidden;
+}
+
+body.login-pf .login-pf-page {
+  position: relative;
+  display: block;
+}
+
+body.login-pf #kc-content-wrapper {
+  display: block;
+}
+
+body.login-pf .cg-login.codegap-auth-shell {
+  display: grid;
+  grid-template-columns: minmax(380px, 480px) minmax(0, 1fr);
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+  min-height: 100vh;
+  padding: 32px;
+}
+
+.cg-login .codegap-auth-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+}
+
+.cg-login .codegap-login-card {
+  width: 100%;
+  max-width: 440px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.cg-login .login-heading h1 {
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+
+.cg-login .eyebrow {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+}
+
+.cg-login .codegap-hero {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  min-height: 560px;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.cg-login .codegap-hero .hero-orb {
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cg-login .codegap-hero .hero-content,
+.cg-login .codegap-hero .code-snippet {
+  z-index: 1;
+}
+
+.cg-login .hero-content h2 {
+  max-width: 14ch;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 960px) {
+  body.login-pf .cg-login.codegap-auth-shell {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding: 32px 16px;
+  }
+
+  .cg-login .codegap-auth-panel {
+    max-width: 440px;
+  }
+
+  .cg-login .codegap-hero {
+    display: none;
+  }
+}
+
+body.login-pf .codegap-info-shell {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+body.login-pf .codegap-info-card form,
+body.login-pf .info-actions form {
+  width: 100%;
+  margin: 0;
+}
+
+body.login-pf .info-actions form .info-primary-btn {
+  width: 100%;
+}
+
+/*
+ * Final viewport layout.
+ * These selectors intentionally come last so they win over both the parent
+ * PatternFly rules and the earlier component-level defaults in this file.
+ */
+html {
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--codegap-ground) !important;
+}
+
+body.login-pf {
+  min-width: 320px;
+  min-height: 100dvh;
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 88% 8%, rgb(52 211 153 / 12%), transparent 28rem),
+    radial-gradient(circle at 8% 92%, rgb(79 70 229 / 10%), transparent 30rem),
+    var(--codegap-ground) !important;
+  color: var(--codegap-text);
+}
+
+body.login-pf .login-pf-page,
+body.login-pf #kc-container,
+body.login-pf #kc-container-wrapper,
+body.login-pf #kc-content,
+body.login-pf #kc-content-wrapper,
+body.login-pf .pf-v5-c-login,
+body.login-pf .pf-v5-c-login__container,
+body.login-pf .pf-v5-c-login__main,
+body.login-pf .pf-v5-c-login__main-header,
+body.login-pf .pf-v5-c-login__main-body,
+body.login-pf .login-pf-page .card-pf {
+  position: static;
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  float: none;
+  border: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body.login-pf .login-pf-page {
+  display: block;
+  overflow: visible;
+}
+
+body.login-pf .cg-login.codegap-auth-shell {
+  display: grid;
+  grid-template-columns: minmax(360px, 460px) minmax(0, 1fr);
+  align-items: stretch;
+  gap: clamp(24px, 4vw, 64px);
+  width: min(100%, 1320px);
+  height: 100dvh;
+  min-height: 100dvh;
+  max-height: 100dvh;
+  margin: 0 auto;
+  padding: clamp(16px, 3vw, 40px);
+  overflow: hidden;
+}
+
+body.login-pf .cg-login .codegap-auth-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+body.login-pf .cg-login .codegap-login-card {
+  width: 100%;
+  max-width: 440px;
+  min-width: 0;
+  max-height: 100%;
+  margin: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body.login-pf .cg-login .codegap-hero {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(24px, 4vw, 56px);
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+body.login-pf .cg-login .hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+body.login-pf .cg-login .hero-content h2 {
+  max-width: 16ch;
+  margin: 0.8rem 0 1.35rem;
+  font-size: clamp(2rem, 3.6vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  overflow-wrap: normal;
+  text-wrap: balance;
+}
+
+body.login-pf .cg-login .code-snippet {
+  right: clamp(24px, 5vw, 72px);
+  bottom: clamp(24px, 6vh, 64px);
+  z-index: 1;
+  margin: 0;
+  animation: float-in-panel 5s ease-in-out infinite;
+}
+
+body.login-pf .cg-login .hero-orb {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+
+body.login-pf .cg-login .hero-content,
+body.login-pf .cg-login .code-snippet {
+  z-index: 1;
+}
+
+body.login-pf .cg-login .eyebrow {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+}
+
+@keyframes float-in-panel {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-0.65rem) rotate(-4deg);
+  }
+}
+
+@media (max-width: 960px) {
+  body.login-pf .cg-login.codegap-auth-shell {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    height: 100dvh;
+    min-height: 100dvh;
+    max-height: none;
+    padding: 16px;
+    overflow: auto;
+  }
+
+  body.login-pf .cg-login .codegap-auth-panel {
+    width: min(100%, 440px);
+    height: auto;
+    min-height: calc(100dvh - 32px);
+    overflow: visible;
+  }
+
+  body.login-pf .cg-login .codegap-login-card {
+    max-height: none;
+    overflow: visible;
+  }
+
+  body.login-pf .cg-login .codegap-hero {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.login-pf .cg-login .code-snippet {
+    animation: none;
+  }
+}
+
+/*
+ * Keycloak 26.x actual document shape:
+ * <html class="login-pf"><body id="keycloak-bg">...</body></html>
+ */
+html.login-pf,
+html.login-pf body#keycloak-bg {
+  width: 100%;
+  min-width: 320px;
+  height: 100%;
+  min-height: 100dvh;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--codegap-ground) !important;
+}
+
+html.login-pf body#keycloak-bg {
+  color: var(--codegap-text);
+  background:
+    radial-gradient(circle at 88% 8%, rgb(52 211 153 / 12%), transparent 28rem),
+    radial-gradient(circle at 8% 92%, rgb(79 70 229 / 10%), transparent 30rem),
+    var(--codegap-ground) !important;
+}
+
+html.login-pf body#keycloak-bg .pf-v5-c-login,
+html.login-pf body#keycloak-bg .pf-v5-c-login__container,
+html.login-pf body#keycloak-bg .pf-v5-c-login__main,
+html.login-pf body#keycloak-bg .pf-v5-c-login__main-header,
+html.login-pf body#keycloak-bg .pf-v5-c-login__main-body,
+html.login-pf body#keycloak-bg .login-pf-page,
+html.login-pf body#keycloak-bg .card-pf,
+html.login-pf body#keycloak-bg #kc-container,
+html.login-pf body#keycloak-bg #kc-container-wrapper,
+html.login-pf body#keycloak-bg #kc-content,
+html.login-pf body#keycloak-bg #kc-content-wrapper {
+  position: static;
+  display: block;
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  min-height: 0;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  float: none;
+  border: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html.login-pf body#keycloak-bg .pf-v5-c-login {
+  width: 100%;
+  min-height: 100dvh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+html.login-pf body#keycloak-bg .cg-login.codegap-auth-shell {
+  display: grid;
+  grid-template-columns: minmax(360px, 460px) minmax(0, 1fr);
+  align-items: stretch;
+  gap: clamp(24px, 4vw, 64px);
+  width: min(100%, 1320px);
+  height: 100dvh;
+  min-height: 100dvh;
+  max-height: 100dvh;
+  margin: 0 auto;
+  padding: clamp(16px, 3vw, 40px);
+  overflow: hidden;
+}
+
+html.login-pf body#keycloak-bg .cg-login .codegap-auth-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+html.login-pf body#keycloak-bg .cg-login .codegap-login-card {
+  width: 100%;
+  max-width: 440px;
+  height: 100%;
+  min-width: 0;
+  max-height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+html.login-pf body#keycloak-bg .cg-login .codegap-hero {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(24px, 4vw, 56px);
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+html.login-pf body#keycloak-bg .cg-login .hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding-bottom: clamp(5rem, 11vh, 8rem);
+}
+
+html.login-pf body#keycloak-bg .cg-login .hero-content h2 {
+  max-width: 16ch;
+  margin: 0.8rem 0 1.35rem;
+  font-size: clamp(2rem, 3.6vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  overflow-wrap: normal;
+  text-wrap: balance;
+}
+
+html.login-pf body#keycloak-bg .cg-login .code-snippet {
+  right: clamp(24px, 5vw, 72px);
+  bottom: clamp(24px, 6vh, 64px);
+  z-index: 1;
+  margin: 0;
+  animation: float-in-panel 5s ease-in-out infinite;
+}
+
+html.login-pf body#keycloak-bg .cg-login .hero-orb {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+
+html.login-pf body#keycloak-bg .cg-login .eyebrow {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+}
+
+@media (max-width: 960px) {
+  html.login-pf body#keycloak-bg .pf-v5-c-login {
+    height: auto;
+    min-height: 100dvh;
+    overflow: auto;
+  }
+
+  html.login-pf body#keycloak-bg .cg-login.codegap-auth-shell {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    height: auto;
+    min-height: 100dvh;
+    max-height: none;
+    padding: 16px;
+    overflow: visible;
+  }
+
+  html.login-pf body#keycloak-bg .cg-login .codegap-auth-panel {
+    width: min(100%, 440px);
+    height: auto;
+    min-height: calc(100dvh - 32px);
+    overflow: visible;
+  }
+
+  html.login-pf body#keycloak-bg .cg-login .codegap-login-card {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    justify-content: flex-start;
+  }
+
+  html.login-pf body#keycloak-bg .cg-login .codegap-hero {
+    display: none;
+  }
+
+  html.login-pf body#keycloak-bg .cg-login .hero-content {
+    padding-bottom: 0;
   }
 }
