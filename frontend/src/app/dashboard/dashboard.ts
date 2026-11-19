@@ -52,7 +52,6 @@ export class Dashboard {
     this.error.set('');
     try {
       const currentProfile = await this.dashboardService.upsertProfile({
-        keycloakId: claims['sub'],
         displayName: claims['preferred_username'] ?? claims['name'] ?? 'Developer',
         email: claims['email'] ?? ''
       }).toPromise();

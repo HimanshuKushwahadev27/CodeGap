@@ -7,7 +7,7 @@ import { DashboardData, Platform, PlatformAccount, UserProfile } from './dashboa
 export class DashboardService {
   private readonly http = inject(HttpClient);
 
-  upsertProfile(profile: { keycloakId: string; displayName: string; email: string }): Observable<UserProfile> {
+  upsertProfile(profile: { displayName: string; email: string }): Observable<UserProfile> {
     return this.http.post<UserProfile>('/api/users/profile', profile);
   }
 

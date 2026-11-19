@@ -69,9 +69,12 @@ public class PlatformLinkService {
     }
 
     @Transactional
-    public void requestSync(UUID accountId) {
+    public void requestSync(UUID accountId, String keycloakId) {
         PlatformAccountEntity account = platformAccountRepository.findById(accountId)
             .orElseThrow(() -> new IllegalArgumentException("Platform account not found: " + accountId));
+        if (!account.getUser().getKeycloakId().equals(keycloakId)) {
+            throw new IllegalArgumentException("Account does not belong to user");
+        }
         account.setSyncStatus(SyncStatus.PENDING);
         publishSync(account);
     }

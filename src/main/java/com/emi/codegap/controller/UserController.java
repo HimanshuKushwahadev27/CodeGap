@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 
 import com.emi.codegap.dto.UserProfileDto;
 import com.emi.codegap.service.UserService;
@@ -25,9 +27,12 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/profile")
-    public ResponseEntity<UserProfileDto> upsertProfile(@Valid @RequestBody UserProfileRequest request) {
+    public ResponseEntity<UserProfileDto> upsertProfile(
+        @Valid @RequestBody UserProfileRequest request,
+        @AuthenticationPrincipal Jwt jwt
+    ) {
         UserProfileDto profile = userService.createOrGetUser(
-            request.keycloakId(),
+            jwt.getSubject(),
             request.displayName(),
             request.email()
         );
@@ -35,14 +40,14 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    public ResponseEntity<UserProfileDto> getUser(@PathVariable UUID userId) {
-        return userService.findById(userId)
+    public ResponseEntity<UserProfileDto> getUser(@PathVariable UUID userId, @AuthenticationPrincipal Jwt jwt) {
+        return userService.findByKeycloakId(jwt.getSubject())
+            .filter(profile -> profile.id().equals(userId))
             .map(ResponseEntity::ok)
             .orElse(ResponseEntity.notFound().build());
     }
 
     public record UserProfileRequest(
-        @NotBlank String keycloakId,
         @NotBlank String displayName,
         @NotBlank String email
     ) {
